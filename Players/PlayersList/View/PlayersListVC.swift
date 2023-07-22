@@ -7,14 +7,15 @@
 
 import UIKit
 
-class PlayersListVC: UIViewController , UISearchBarDelegate {
+class PlayersListVC: UIViewController  {
     
     let viewModel = PlayersListViewModel(networkService: NetworkService())
     
-    private let searchBar : UISearchBar = {
+    private lazy var searchBar : UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search here"
         searchBar.tintColor = AppColors.primary
+        searchBar.delegate = self
         searchBar.setImage(UIImage(), for: .search, state: .normal)
         return searchBar
     }()
@@ -118,11 +119,19 @@ class PlayersListVC: UIViewController , UISearchBarDelegate {
             }
         }
         
+        viewModel.isSearching.bind { _ in
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
+                self?.playersCollectionView.reloadData()
+            }
+        }
+        
         viewModel.topPlayers.bind { _ in
             DispatchQueue.main.async { [weak self] in
                 self?.playersCollectionView.reloadData()
             }
         }
+        
     }
     
     func configureUI(){
@@ -136,8 +145,6 @@ class PlayersListVC: UIViewController , UISearchBarDelegate {
     }
     
     func configureNavBar(){
-        
-        searchBar.delegate = self
         
         let backButton = UIBarButtonItem(image: UIImage(named: "Back"), style: .plain, target: self, action:nil)
         navigationItem.leftBarButtonItem = backButton
@@ -158,3 +165,11 @@ class PlayersListVC: UIViewController , UISearchBarDelegate {
 
 }
 
+extension PlayersListVC : UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let searchText = searchBar.text else {return}
+        viewModel.searchPlayers(text: searchText)
+    }
+   
+}

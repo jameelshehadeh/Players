@@ -13,6 +13,9 @@ class PlayersListViewModel  {
     
     var players : Observable<[Player]> = Observable(value: [])
     var topPlayers : Observable<[Player]> = Observable(value: [])
+    var searchedPlayers : Observable<[Player]> = Observable(value: [])
+    var searchedTopPlayers : Observable<[Player]> = Observable(value: [])
+    var isSearching : Observable<Bool> = Observable(value: false)
     
     init(networkService: Servicing) {
         self.networkService = networkService
@@ -44,5 +47,17 @@ class PlayersListViewModel  {
         })
     }
     
+    func searchPlayers(text: String){
+        guard text.count > 0 else {
+            isSearching.value = false
+            return
+        }
+        isSearching.value = true
+        searchedPlayers.value = players.value?.filter({ $0.name!.lowercased().contains(text.lowercased()) })
+        searchedTopPlayers.value = searchedPlayers.value?.filter({ player in
+            guard let playerRate = Double(player.rating) else {return false}
+            return playerRate > 60.0
+        })
+    }
     
 }

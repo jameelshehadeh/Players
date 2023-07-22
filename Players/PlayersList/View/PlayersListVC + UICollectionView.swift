@@ -14,11 +14,18 @@ extension PlayersListVC : UICollectionViewDelegate , UICollectionViewDataSource 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.topPlayers.value?.count ?? 0
+        viewModel.isSearching.value == true ?
+        (viewModel.searchedTopPlayers.value?.count ?? 0) :
+            (viewModel.topPlayers.value?.count ?? 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionViewCell", for: indexPath) as? PlayerCollectionViewCell, let model = viewModel.topPlayers.value?[indexPath.row] else {return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionViewCell", for: indexPath) as? PlayerCollectionViewCell else {return UICollectionViewCell()}
+        var cellModel : Player?
+        viewModel.isSearching.value == true ?
+            (cellModel = viewModel.searchedTopPlayers.value?[indexPath.row]) : (cellModel = viewModel.topPlayers.value?[indexPath.row])
+        guard let model = cellModel else {return UICollectionViewCell()}
+        
         cell.setupCell(model: model)
         return cell
     }

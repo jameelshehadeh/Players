@@ -14,11 +14,17 @@ extension PlayersListVC : UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.players.value?.count ?? 0
+        viewModel.isSearching.value == true ?
+        (viewModel.searchedPlayers.value?.count ?? 0) :
+            (viewModel.players.value?.count ?? 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerTableViewCell", for: indexPath) as? PlayerTableViewCell ,  let model = viewModel.players.value?[indexPath.row] else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerTableViewCell", for: indexPath) as? PlayerTableViewCell else {return UITableViewCell()}
+        var cellModel : Player?
+        viewModel.isSearching.value == true ?
+            (cellModel = viewModel.searchedPlayers.value?[indexPath.row]) : (cellModel = viewModel.players.value?[indexPath.row])
+        guard let model = cellModel else {return UITableViewCell()}
         cell.setupCell(model: model)
         return cell
     }
