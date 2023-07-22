@@ -7,12 +7,12 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - PlayersListResponse
 struct PlayersListResponse : Codable {
-    let status: Int
-    let message: String
-    let data: [Player]
-    let total, perPage: Int
+    let status: Int?
+    let message: String?
+    let data: [Player]?
+    let total, perPage: Int?
 
     enum CodingKeys: String, CodingKey {
         case status, message, data, total

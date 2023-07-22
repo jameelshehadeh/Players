@@ -112,14 +112,17 @@ class PlayersListVC: UIViewController , UISearchBarDelegate {
     
     func bindData(){
         
-        viewModel.players.bind { players in
-            
+        viewModel.players.bind { _ in
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
             }
-            
         }
         
+        viewModel.topPlayers.bind { _ in
+            DispatchQueue.main.async { [weak self] in
+                self?.playersCollectionView.reloadData()
+            }
+        }
     }
     
     func configureUI(){
@@ -162,11 +165,12 @@ extension PlayersListVC : UICollectionViewDelegate , UICollectionViewDataSource 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return viewModel.topPlayers.value?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionViewCell", for: indexPath) as? PlayerCollectionViewCell else {return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionViewCell", for: indexPath) as? PlayerCollectionViewCell, let model = viewModel.topPlayers.value?[indexPath.row] else {return UICollectionViewCell()}
+        cell.setupCell(model: model)
         return cell
     }
 
@@ -201,8 +205,8 @@ extension PlayersListVC : UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerTableViewCell", for: indexPath) as? PlayerTableViewCell else {return UITableViewCell()}
-        cell.clubNameLabel.text = viewModel.players.value?[indexPath.row].teamName
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerTableViewCell", for: indexPath) as? PlayerTableViewCell ,  let model = viewModel.players.value?[indexPath.row] else {return UITableViewCell()}
+        cell.setupCell(model: model)
         return cell
     }
     

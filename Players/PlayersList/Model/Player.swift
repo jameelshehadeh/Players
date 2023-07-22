@@ -9,29 +9,29 @@ import Foundation
 
 // MARK: - Player
 struct Player: Codable {
-    let id, sportID, slug, name: String
-    let nameTranslations: NameTranslations
-    let nameShort: String
-    let photo: String
-    let position: Position
-    let positionName: PositionName
+    let id, sportID, slug, name: String?
+    let nameTranslations: NameTranslations?
+    let nameShort: String?
+    let photo: String?
+    let position: String?
+    let positionName: String
     let weight, age, dateBirthAt, height: String
-    let shirtNumber: String
-    let preferredFoot: PreferredFoot
+    let shirtNumber: String?
+    let preferredFoot: String?
     let nationalityCode, flag: String
-    let marketCurrency: MarketCurrency
+    let marketCurrency: String?
     let marketValue, contractUntil, rating: String
     let characteristics: Characteristics?
     let ability: [Ability]?
-    let teamID, teamCategoryID, teamVenueID, teamManagerID: String
-    let teamSlug, teamName: String
-    let teamLogo: String
+    let teamID, teamCategoryID, teamVenueID, teamManagerID: String?
+    let teamSlug, teamName: String?
+    let teamLogo: String?
     let teamNameTranslations: TeamNameTranslations?
-    let teamNameShort, teamNameFull, teamNameCode, teamHasSub: String
-    let teamGender: TeamGender
-    let teamIsNationality, teamCountryCode, teamCountry, teamFlag: String
-    let teamFoundation: String
-    let updated: Updated
+    let teamNameShort, teamNameFull, teamNameCode, teamHasSub: String?
+    let teamGender: String?
+    let teamIsNationality, teamCountryCode, teamCountry, teamFlag: String?
+    let teamFoundation: String?
+    let updated: String?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -76,8 +76,8 @@ struct Player: Codable {
 
 // MARK: - Ability
 struct Ability: Codable {
-    let name: Name
-    let value, fullAverage: Int
+    let name: String?
+    let value, fullAverage: Int?
 
     enum CodingKeys: String, CodingKey {
         case name, value
@@ -85,27 +85,15 @@ struct Ability: Codable {
     }
 }
 
-enum Name: String, Codable {
-    case attacking = "Attacking"
-    case creativity = "Creativity"
-    case defending = "Defending"
-    case tactical = "Tactical"
-    case technical = "Technical"
-}
-
 // MARK: - Characteristics
 struct Characteristics: Codable {
     let positive, negative: [Characteristic]?
 }
 
-// MARK: - Tive
+// MARK: - Characteristic
 struct Characteristic: Codable {
     let feature: String
     let value: Int
-}
-
-enum MarketCurrency: String, Codable {
-    case eur = "EUR"
 }
 
 // MARK: - NameTranslations
@@ -113,37 +101,11 @@ struct NameTranslations: Codable {
     let en: String
 }
 
-enum Position: String, Codable {
-    case d = "D"
-    case f = "F"
-    case m = "M"
-}
-
-enum PositionName: String, Codable {
-    case defender = "Defender"
-    case forward = "Forward"
-    case midfielder = "Midfielder"
-}
-
-enum PreferredFoot: String, Codable {
-    case both = "Both"
-    case preferredFootLeft = "Left"
-    case preferredFootRight = "Right"
-}
-
-enum TeamGender: String, Codable {
-    case empty = ""
-    case m = "M"
-}
-
 // MARK: - TeamNameTranslations
 struct TeamNameTranslations: Codable {
-    let en, ru, de, es: String
-    let fr, zh, tr, el: String
+    let en, ru, de, es: String?
+    let fr, zh, tr, el: String?
     let it: String?
-    let nl, pt: String
+    let nl, pt: String?
 }
 
-enum Updated: String, Codable {
-    case the20221212140731 = "2022-12-12 14:07:31"
-}

@@ -13,9 +13,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     lazy var containerView : UIView = {
         let containerView = UIView()
         containerView.backgroundColor = .white
-
         containerView.layer.cornerRadius = 15
-        containerView.clipsToBounds = true
         return containerView
     }()
 
@@ -33,6 +31,8 @@ class PlayerCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         imageView.image = UIImage(named: "CR")
         imageView.contentMode = .scaleAspectFit
+        imageView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+        imageView.layer.cornerRadius = 12
         imageView.snp.makeConstraints { make in
             make.size.equalTo(136)
         }
@@ -60,28 +60,37 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.clipsToBounds = false        
+        updateUI()
+       
+    }
+    
+    func updateUI(){
+        contentView.clipsToBounds = false
+        contentView.addShadow(shadowColor: .black, shadowOffset: CGSize(width: 3, height: 3), shadowOpacity: 0.1, shadowRadius: 3)
+        
         contentView.addSubview(containerView)
-        contentView.addShadow()
+        containerView.addSubview(playerImage)
+        containerView.addSubview(labelsVStackView)
+    
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.width.equalTo(136)
-            make.height.equalTo(186)
         }
-        
-        containerView.addSubview(playerImage)
-        containerView.addSubview(labelsVStackView)
         
         playerImage.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview()
         }
-        
-        
+    
         labelsVStackView.snp.makeConstraints { make in
             make.top.equalTo(playerImage.snp_bottomMargin).offset(15)
             make.left.right.equalToSuperview().inset(8)
         }
-
+    }
+    
+    func setupCell(model: Player) {
+        playerNameLabel.text = model.name
+        clubNameLabel.text = model.teamName
+        playerImage.sd_setImage(with: URL(string: model.photo ?? "" ), placeholderImage: nil, context: nil)
     }
     
     required init?(coder: NSCoder) {

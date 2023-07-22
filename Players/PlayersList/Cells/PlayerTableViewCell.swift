@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PlayerTableViewCell: UITableViewCell {
 
@@ -32,7 +33,10 @@ class PlayerTableViewCell: UITableViewCell {
         imageView.snp.makeConstraints { make in
             make.size.equalTo(48)
         }
+        imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         imageView.layer.cornerRadius = 8
+        
+        imageView.addShadow()
         return imageView
     }()
     
@@ -133,6 +137,18 @@ class PlayerTableViewCell: UITableViewCell {
         hStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(4)
         }
+        
+    }
+    
+    func setupCell(model: Player) {
+        
+        playerNameLabel.text = model.name
+        let ratingDoubleValue = Double(model.rating) ?? 0.00
+        ratingValueLabel.text = String(format: "%.0f",ratingDoubleValue)
+        clubNameLabel.text = model.teamName
+        playerPositionLabel.text = model.positionName
+        
+        playerImage.sd_setImage(with: URL(string: model.photo ?? "" ), placeholderImage: nil, context: nil)
         
     }
     
