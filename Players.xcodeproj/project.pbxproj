@@ -22,6 +22,9 @@
 		FAF0B7772A6BDB81009B1E70 /* PlayersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7762A6BDB81009B1E70 /* PlayersListViewModel.swift */; };
 		FAF0B7792A6BDB9C009B1E70 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7782A6BDB9C009B1E70 /* Observable.swift */; };
 		FAF0B77B2A6BDE1A009B1E70 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B77A2A6BDE1A009B1E70 /* HTTPMethod.swift */; };
+		FAF0B77F2A6BE0A5009B1E70 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B77E2A6BE0A5009B1E70 /* EndPoint.swift */; };
+		FAF0B7812A6BE123009B1E70 /* PlayersListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7802A6BE123009B1E70 /* PlayersListResponse.swift */; };
+		FAF0B7832A6BE14D009B1E70 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7822A6BE14D009B1E70 /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		FAF0B7762A6BDB81009B1E70 /* PlayersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListViewModel.swift; sourceTree = "<group>"; };
 		FAF0B7782A6BDB9C009B1E70 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		FAF0B77A2A6BDE1A009B1E70 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		FAF0B77E2A6BE0A5009B1E70 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		FAF0B7802A6BE123009B1E70 /* PlayersListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListResponse.swift; sourceTree = "<group>"; };
+		FAF0B7822A6BE14D009B1E70 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,8 @@
 		FAF0B7612A6AD416009B1E70 /* PlayersList */ = {
 			isa = PBXGroup;
 			children = (
+				FAF0B77D2A6BE092009B1E70 /* Model */,
+				FAF0B77C2A6BE087009B1E70 /* ViewModel */,
 				FAF0B7712A6BCD2D009B1E70 /* View */,
 				FAF0B7692A6BC21B009B1E70 /* Cells */,
 			);
@@ -102,6 +110,7 @@
 				FAF0B7742A6BDA35009B1E70 /* NetworkService.swift */,
 				FAF0B7782A6BDB9C009B1E70 /* Observable.swift */,
 				FAF0B77A2A6BDE1A009B1E70 /* HTTPMethod.swift */,
+				FAF0B77E2A6BE0A5009B1E70 /* EndPoint.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -128,9 +137,25 @@
 			isa = PBXGroup;
 			children = (
 				FAF0B7512A6AD267009B1E70 /* PlayersListVC.swift */,
-				FAF0B7762A6BDB81009B1E70 /* PlayersListViewModel.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FAF0B77C2A6BE087009B1E70 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FAF0B7762A6BDB81009B1E70 /* PlayersListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FAF0B77D2A6BE092009B1E70 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAF0B7802A6BE123009B1E70 /* PlayersListResponse.swift */,
+				FAF0B7822A6BE14D009B1E70 /* Player.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,17 +234,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF0B77F2A6BE0A5009B1E70 /* EndPoint.swift in Sources */,
 				FAF0B7792A6BDB9C009B1E70 /* Observable.swift in Sources */,
 				FAF0B7702A6BCC83009B1E70 /* UIView + Extensions.swift in Sources */,
 				FAF0B7522A6AD267009B1E70 /* PlayersListVC.swift in Sources */,
 				FAF0B7652A6AD7A2009B1E70 /* AppColors.swift in Sources */,
 				FAF0B77B2A6BDE1A009B1E70 /* HTTPMethod.swift in Sources */,
 				FAF0B7772A6BDB81009B1E70 /* PlayersListViewModel.swift in Sources */,
+				FAF0B7812A6BE123009B1E70 /* PlayersListResponse.swift in Sources */,
 				FAF0B7682A6AD9EE009B1E70 /* UIViewController+Extensions.swift in Sources */,
 				FAF0B7752A6BDA35009B1E70 /* NetworkService.swift in Sources */,
 				FAF0B7732A6BCE5A009B1E70 /* PlayerTableViewCell.swift in Sources */,
 				FAF0B74E2A6AD267009B1E70 /* AppDelegate.swift in Sources */,
 				FAF0B7502A6AD267009B1E70 /* SceneDelegate.swift in Sources */,
+				FAF0B7832A6BE14D009B1E70 /* Player.swift in Sources */,
 				FAF0B76B2A6BC231009B1E70 /* PlayerCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
