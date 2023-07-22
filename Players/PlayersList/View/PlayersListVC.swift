@@ -9,6 +9,8 @@ import UIKit
 
 class PlayersListVC: UIViewController , UISearchBarDelegate {
     
+    let viewModel = PlayersListViewModel(networkService: NetworkService())
+    
     private let searchBar : UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search here"
@@ -100,9 +102,28 @@ class PlayersListVC: UIViewController , UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        configureUI()
         setNavBarAppearance()
         configureNavBar()
+        bindData()
+        viewModel.getPlayersList()
+    }
+    
+    
+    func bindData(){
+        
+        viewModel.players.bind { players in
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
+            }
+            
+        }
+        
+    }
+    
+    func configureUI(){
+        view.backgroundColor = .systemBackground
         view.addSubview(vStackView)
         vStackView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
@@ -176,11 +197,12 @@ extension PlayersListVC : UITableViewDelegate , UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.players.value?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerTableViewCell", for: indexPath) as? PlayerTableViewCell else {return UITableViewCell()}
+        cell.clubNameLabel.text = viewModel.players.value?[indexPath.row].teamName
         return cell
     }
     
