@@ -12,6 +12,8 @@
 		FAF0B7522A6AD267009B1E70 /* PlayersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7512A6AD267009B1E70 /* PlayersListVC.swift */; };
 		FAF0B7572A6AD268009B1E70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF0B7562A6AD268009B1E70 /* Assets.xcassets */; };
 		FAF0B75A2A6AD268009B1E70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF0B7582A6AD268009B1E70 /* LaunchScreen.storyboard */; };
+		FAF0B7652A6AD7A2009B1E70 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7642A6AD7A2009B1E70 /* AppColors.swift */; };
+		FAF0B7682A6AD9EE009B1E70 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7672A6AD9EE009B1E70 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		FAF0B7562A6AD268009B1E70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAF0B7592A6AD268009B1E70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAF0B75B2A6AD268009B1E70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAF0B7642A6AD7A2009B1E70 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		FAF0B7672A6AD9EE009B1E70 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				FAF0B74D2A6AD267009B1E70 /* AppDelegate.swift */,
 				FAF0B74F2A6AD267009B1E70 /* SceneDelegate.swift */,
+				FAF0B7662A6AD9D8009B1E70 /* Extensions */,
+				FAF0B7632A6AD793009B1E70 /* Utils */,
 				FAF0B7612A6AD416009B1E70 /* PlayersList */,
 				FAF0B7562A6AD268009B1E70 /* Assets.xcassets */,
 				FAF0B7582A6AD268009B1E70 /* LaunchScreen.storyboard */,
@@ -70,6 +76,22 @@
 				FAF0B7512A6AD267009B1E70 /* PlayersListVC.swift */,
 			);
 			path = PlayersList;
+			sourceTree = "<group>";
+		};
+		FAF0B7632A6AD793009B1E70 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FAF0B7642A6AD7A2009B1E70 /* AppColors.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FAF0B7662A6AD9D8009B1E70 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FAF0B7672A6AD9EE009B1E70 /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +165,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF0B7522A6AD267009B1E70 /* PlayersListVC.swift in Sources */,
+				FAF0B7652A6AD7A2009B1E70 /* AppColors.swift in Sources */,
+				FAF0B7682A6AD9EE009B1E70 /* UIViewController+Extensions.swift in Sources */,
 				FAF0B74E2A6AD267009B1E70 /* AppDelegate.swift in Sources */,
 				FAF0B7502A6AD267009B1E70 /* SceneDelegate.swift in Sources */,
 			);
