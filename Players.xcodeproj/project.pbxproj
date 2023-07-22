@@ -26,6 +26,8 @@
 		FAF0B7812A6BE123009B1E70 /* PlayersListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7802A6BE123009B1E70 /* PlayersListResponse.swift */; };
 		FAF0B7832A6BE14D009B1E70 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7822A6BE14D009B1E70 /* Player.swift */; };
 		FAF0B7862A6BE36F009B1E70 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FAF0B7852A6BE36F009B1E70 /* SDWebImage */; };
+		FAF0B7882A6BEC33009B1E70 /* PlayersListVC + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7872A6BEC33009B1E70 /* PlayersListVC + UITableView.swift */; };
+		FAF0B78A2A6BEC60009B1E70 /* PlayersListVC + UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7892A6BEC60009B1E70 /* PlayersListVC + UICollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		FAF0B77E2A6BE0A5009B1E70 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		FAF0B7802A6BE123009B1E70 /* PlayersListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListResponse.swift; sourceTree = "<group>"; };
 		FAF0B7822A6BE14D009B1E70 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		FAF0B7872A6BEC33009B1E70 /* PlayersListVC + UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersListVC + UITableView.swift"; sourceTree = "<group>"; };
+		FAF0B7892A6BEC60009B1E70 /* PlayersListVC + UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersListVC + UICollectionView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				FAF0B77D2A6BE092009B1E70 /* Model */,
-				FAF0B77C2A6BE087009B1E70 /* ViewModel */,
 				FAF0B7712A6BCD2D009B1E70 /* View */,
+				FAF0B77C2A6BE087009B1E70 /* ViewModel */,
 				FAF0B7692A6BC21B009B1E70 /* Cells */,
 			);
 			path = PlayersList;
@@ -139,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				FAF0B7512A6AD267009B1E70 /* PlayersListVC.swift */,
+				FAF0B7872A6BEC33009B1E70 /* PlayersListVC + UITableView.swift */,
+				FAF0B7892A6BEC60009B1E70 /* PlayersListVC + UICollectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 				FAF0B7652A6AD7A2009B1E70 /* AppColors.swift in Sources */,
 				FAF0B77B2A6BDE1A009B1E70 /* HTTPMethod.swift in Sources */,
 				FAF0B7772A6BDB81009B1E70 /* PlayersListViewModel.swift in Sources */,
+				FAF0B7882A6BEC33009B1E70 /* PlayersListVC + UITableView.swift in Sources */,
 				FAF0B7812A6BE123009B1E70 /* PlayersListResponse.swift in Sources */,
 				FAF0B7682A6AD9EE009B1E70 /* UIViewController+Extensions.swift in Sources */,
 				FAF0B7752A6BDA35009B1E70 /* NetworkService.swift in Sources */,
@@ -252,6 +259,7 @@
 				FAF0B74E2A6AD267009B1E70 /* AppDelegate.swift in Sources */,
 				FAF0B7502A6AD267009B1E70 /* SceneDelegate.swift in Sources */,
 				FAF0B7832A6BE14D009B1E70 /* Player.swift in Sources */,
+				FAF0B78A2A6BEC60009B1E70 /* PlayersListVC + UICollectionView.swift in Sources */,
 				FAF0B76B2A6BC231009B1E70 /* PlayerCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
