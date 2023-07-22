@@ -14,6 +14,10 @@
 		FAF0B75A2A6AD268009B1E70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF0B7582A6AD268009B1E70 /* LaunchScreen.storyboard */; };
 		FAF0B7652A6AD7A2009B1E70 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7642A6AD7A2009B1E70 /* AppColors.swift */; };
 		FAF0B7682A6AD9EE009B1E70 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7672A6AD9EE009B1E70 /* UIViewController+Extensions.swift */; };
+		FAF0B76B2A6BC231009B1E70 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B76A2A6BC231009B1E70 /* PlayerCollectionViewCell.swift */; };
+		FAF0B76E2A6BC38F009B1E70 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAF0B76D2A6BC38F009B1E70 /* SnapKit */; };
+		FAF0B7702A6BCC83009B1E70 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B76F2A6BCC83009B1E70 /* UIView + Extensions.swift */; };
+		FAF0B7732A6BCE5A009B1E70 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7722A6BCE5A009B1E70 /* PlayerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,9 @@
 		FAF0B75B2A6AD268009B1E70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAF0B7642A6AD7A2009B1E70 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		FAF0B7672A6AD9EE009B1E70 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		FAF0B76A2A6BC231009B1E70 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAF0B76F2A6BCC83009B1E70 /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
+		FAF0B7722A6BCE5A009B1E70 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF0B76E2A6BC38F009B1E70 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +81,8 @@
 		FAF0B7612A6AD416009B1E70 /* PlayersList */ = {
 			isa = PBXGroup;
 			children = (
-				FAF0B7512A6AD267009B1E70 /* PlayersListVC.swift */,
+				FAF0B7712A6BCD2D009B1E70 /* View */,
+				FAF0B7692A6BC21B009B1E70 /* Cells */,
 			);
 			path = PlayersList;
 			sourceTree = "<group>";
@@ -90,8 +99,26 @@
 			isa = PBXGroup;
 			children = (
 				FAF0B7672A6AD9EE009B1E70 /* UIViewController+Extensions.swift */,
+				FAF0B76F2A6BCC83009B1E70 /* UIView + Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FAF0B7692A6BC21B009B1E70 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FAF0B76A2A6BC231009B1E70 /* PlayerCollectionViewCell.swift */,
+				FAF0B7722A6BCE5A009B1E70 /* PlayerTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FAF0B7712A6BCD2D009B1E70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAF0B7512A6AD267009B1E70 /* PlayersListVC.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +137,9 @@
 			dependencies = (
 			);
 			name = Players;
+			packageProductDependencies = (
+				FAF0B76D2A6BC38F009B1E70 /* SnapKit */,
+			);
 			productName = Players;
 			productReference = FAF0B74A2A6AD267009B1E70 /* Players.app */;
 			productType = "com.apple.product-type.application";
@@ -138,6 +168,9 @@
 				Base,
 			);
 			mainGroup = FAF0B7412A6AD267009B1E70;
+			packageReferences = (
+				FAF0B76C2A6BC38F009B1E70 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = FAF0B74B2A6AD267009B1E70 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -164,11 +197,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF0B7702A6BCC83009B1E70 /* UIView + Extensions.swift in Sources */,
 				FAF0B7522A6AD267009B1E70 /* PlayersListVC.swift in Sources */,
 				FAF0B7652A6AD7A2009B1E70 /* AppColors.swift in Sources */,
 				FAF0B7682A6AD9EE009B1E70 /* UIViewController+Extensions.swift in Sources */,
+				FAF0B7732A6BCE5A009B1E70 /* PlayerTableViewCell.swift in Sources */,
 				FAF0B74E2A6AD267009B1E70 /* AppDelegate.swift in Sources */,
 				FAF0B7502A6AD267009B1E70 /* SceneDelegate.swift in Sources */,
+				FAF0B76B2A6BC231009B1E70 /* PlayerCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +412,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FAF0B76C2A6BC38F009B1E70 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAF0B76D2A6BC38F009B1E70 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAF0B76C2A6BC38F009B1E70 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FAF0B7422A6AD267009B1E70 /* Project object */;
 }
