@@ -23,7 +23,7 @@ class PlayersListVC: UIViewController  {
     }()
     
     private lazy var vStackView : UIStackView = {
-        let stackView = UIStackView.init(arrangedSubviews: [topPlayersLabel,playersCollectionView,allPlayersLabel,tableContainerView])
+        let stackView = UIStackView.init(arrangedSubviews: [topPlayersLabel,searchResultLabel,playersCollectionView,allPlayersLabel,tableContainerView])
         stackView.isHidden = true
         stackView.axis = .vertical
         stackView.alignment = .fill
@@ -32,6 +32,19 @@ class PlayersListVC: UIViewController  {
         stackView.directionalLayoutMargins = .init(top: 24, leading: 20, bottom: 10, trailing: 20)
         stackView.distribution = .fill
         return stackView
+    }()
+    
+    let searchResultLabel: UILabel = {
+        let label = UILabel()
+        label.adjustsFontSizeToFitWidth = true
+        label.isHidden = true
+        label.textColor = AppColors.primaryMid
+        label.font = UIFont.systemFont(ofSize: 28, weight: .light)
+        label.text = "Search results"
+        label.snp.makeConstraints { make in
+            make.height.equalTo(29)
+        }
+        return label
     }()
     
     let topPlayersLabel: UILabel = {
@@ -116,7 +129,8 @@ class PlayersListVC: UIViewController  {
     func bindData(){
         
         viewModel.isSearching.bind { [weak self] isSearching in
-            guard let self else {return}
+            guard let self , let isSearching else {return}
+            self.configureSearching(isSearching: isSearching)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.playersCollectionView.reloadData()
@@ -149,6 +163,22 @@ class PlayersListVC: UIViewController  {
             }
         }
     
+    }
+    
+    func configureSearching(isSearching: Bool){
+        
+        if isSearching {
+            topPlayersLabel.isHidden = true
+            playersCollectionView.isHidden = true
+            allPlayersLabel.isHidden = true
+            searchResultLabel.isHidden = false
+        }
+        else {
+            topPlayersLabel.isHidden = false
+            playersCollectionView.isHidden = false
+            allPlayersLabel.isHidden = false
+            searchResultLabel.isHidden = true
+        }
     }
     
     func configureUI(){

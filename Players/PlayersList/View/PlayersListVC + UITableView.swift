@@ -19,6 +19,11 @@ extension PlayersListVC : UITableViewDelegate , UITableViewDataSource {
             (viewModel.players.value?.count ?? 0)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = PlayerDetailsVC()
+        push(vc)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerTableViewCell", for: indexPath) as? PlayerTableViewCell else {return UITableViewCell()}
         var cellModel : Player?
