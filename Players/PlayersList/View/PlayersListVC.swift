@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class PlayersListVC: UIViewController  {
     
     let viewModel = PlayersListViewModel(networkService: NetworkService())
+    let spinner = JGProgressHUD(style: .light)
     
     private lazy var searchBar : UISearchBar = {
         let searchBar = UISearchBar()
@@ -22,6 +24,7 @@ class PlayersListVC: UIViewController  {
     
     private lazy var vStackView : UIStackView = {
         let stackView = UIStackView.init(arrangedSubviews: [topPlayersLabel,playersCollectionView,allPlayersLabel,tableContainerView])
+        stackView.isHidden = true
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.isLayoutMarginsRelativeArrangement = true
@@ -110,28 +113,42 @@ class PlayersListVC: UIViewController  {
         viewModel.getPlayersList()
     }
     
-    
     func bindData(){
         
-        viewModel.players.bind { _ in
-            DispatchQueue.main.async { [weak self] in
-                self?.tableView.reloadData()
+        viewModel.isSearching.bind { [weak self] isSearching in
+            guard let self else {return}
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.playersCollectionView.reloadData()
             }
         }
         
-        viewModel.isSearching.bind { _ in
-            DispatchQueue.main.async { [weak self] in
-                self?.tableView.reloadData()
-                self?.playersCollectionView.reloadData()
+        viewModel.players.bind { [weak self] allPlayers in
+            guard let self , let players = allPlayers , !players.isEmpty else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.vStackView.isHidden = false
+                self.tableView.reloadData()
             }
         }
         
-        viewModel.topPlayers.bind { _ in
-            DispatchQueue.main.async { [weak self] in
-                self?.playersCollectionView.reloadData()
+        viewModel.topPlayers.bind { [weak self] topPlayers in
+            guard let self, let players = topPlayers , !players.isEmpty else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.playersCollectionView.reloadData()
             }
         }
         
+        viewModel.showLoader.bind { [weak self] showLoader in
+            guard let self , let showLoader else {return}
+            DispatchQueue.main.async {
+                showLoader ? self.spinner.show(in: self.view) : self.spinner.dismiss()
+            }
+        }
+    
     }
     
     func configureUI(){

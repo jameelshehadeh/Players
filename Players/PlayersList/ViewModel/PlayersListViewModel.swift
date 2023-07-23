@@ -16,6 +16,7 @@ class PlayersListViewModel  {
     var searchedPlayers : Observable<[Player]> = Observable(value: [])
     var searchedTopPlayers : Observable<[Player]> = Observable(value: [])
     var isSearching : Observable<Bool> = Observable(value: false)
+    var showLoader : Observable<Bool> = Observable(value: false)
     
     init(networkService: Servicing) {
         self.networkService = networkService
@@ -23,19 +24,23 @@ class PlayersListViewModel  {
     
     func getPlayersList(){
 
+        showLoader.value = true
         networkService.request(endPoint: .getPlayersList, method: .post, body:  nil) { [weak self] (results: Result<PlayersListResponse?,Error> ) in
             guard let self else {return}
+            
+            defer {
+                self.showLoader.value = false
+            }
+            
             switch results {
-                
             case .success(let response):
-                guard let players = response?.data else {
-                    return
-                }
+                guard let players = response?.data else {return}
                 self.players.value = players
-                getTopPlayers(players: self.players.value ?? [])
+                self.showLoader.value = false
+                self.getTopPlayers(players: self.players.value ?? [])
             case .failure(let error):
                 print(error)
-            }  
+            }
         }
     }
     
@@ -48,12 +53,12 @@ class PlayersListViewModel  {
     }
     
     func searchPlayers(text: String){
-        guard text.count > 0 else {
+        guard !text.isEmpty else {
             isSearching.value = false
             return
         }
         isSearching.value = true
-        searchedPlayers.value = players.value?.filter({ $0.name!.lowercased().contains(text.lowercased()) })
+        searchedPlayers.value = players.value?.filter({ ($0.name ?? "").lowercased().contains(text.lowercased()) })
         searchedTopPlayers.value = searchedPlayers.value?.filter({ player in
             guard let playerRate = Double(player.rating) else {return false}
             return playerRate > 60.0

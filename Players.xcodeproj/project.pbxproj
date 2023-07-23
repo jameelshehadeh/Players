@@ -28,6 +28,7 @@
 		FAF0B7862A6BE36F009B1E70 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FAF0B7852A6BE36F009B1E70 /* SDWebImage */; };
 		FAF0B7882A6BEC33009B1E70 /* PlayersListVC + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7872A6BEC33009B1E70 /* PlayersListVC + UITableView.swift */; };
 		FAF0B78A2A6BEC60009B1E70 /* PlayersListVC + UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7892A6BEC60009B1E70 /* PlayersListVC + UICollectionView.swift */; };
+		FAF0B78D2A6D1E8F009B1E70 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = FAF0B78C2A6D1E8F009B1E70 /* JGProgressHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF0B7862A6BE36F009B1E70 /* SDWebImage in Frameworks */,
+				FAF0B78D2A6D1E8F009B1E70 /* JGProgressHUD in Frameworks */,
 				FAF0B76E2A6BC38F009B1E70 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +187,7 @@
 			packageProductDependencies = (
 				FAF0B76D2A6BC38F009B1E70 /* SnapKit */,
 				FAF0B7852A6BE36F009B1E70 /* SDWebImage */,
+				FAF0B78C2A6D1E8F009B1E70 /* JGProgressHUD */,
 			);
 			productName = Players;
 			productReference = FAF0B74A2A6AD267009B1E70 /* Players.app */;
@@ -217,6 +220,7 @@
 			packageReferences = (
 				FAF0B76C2A6BC38F009B1E70 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				FAF0B7842A6BE36F009B1E70 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				FAF0B78B2A6D1E8F009B1E70 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = FAF0B74B2A6AD267009B1E70 /* Products */;
 			projectDirPath = "";
@@ -486,6 +490,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		FAF0B78B2A6D1E8F009B1E70 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -498,6 +510,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FAF0B7842A6BE36F009B1E70 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		FAF0B78C2A6D1E8F009B1E70 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAF0B78B2A6D1E8F009B1E70 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
