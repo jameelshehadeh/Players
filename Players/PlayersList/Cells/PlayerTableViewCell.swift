@@ -12,7 +12,7 @@ class PlayerTableViewCell: UITableViewCell {
 
     private lazy var hStackView : UIStackView = {
         let stackView = UIStackView.init(arrangedSubviews: [playerImage,playerInfoVStackView,ratingVStackView])
-        stackView.backgroundColor = .white
+        stackView.backgroundColor = .systemBackground
         stackView.addShadow()
         
         stackView.axis = .horizontal

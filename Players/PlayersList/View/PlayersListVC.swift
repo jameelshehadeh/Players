@@ -197,7 +197,7 @@ class PlayersListVC: UIViewController  {
         navigationItem.leftBarButtonItem = backButton
         navigationItem.titleView = searchBar
         
-        searchBar.searchTextField.backgroundColor = .white
+        searchBar.searchTextField.backgroundColor = .systemBackground
         let homeButton = UIBarButtonItem(image: UIImage(named: "Home"), style: .plain, target: self, action:nil)
         
         let settingsButton = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action:nil)

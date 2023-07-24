@@ -29,7 +29,6 @@
 		FAF0B7882A6BEC33009B1E70 /* PlayersListVC + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7872A6BEC33009B1E70 /* PlayersListVC + UITableView.swift */; };
 		FAF0B78A2A6BEC60009B1E70 /* PlayersListVC + UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7892A6BEC60009B1E70 /* PlayersListVC + UICollectionView.swift */; };
 		FAF0B78D2A6D1E8F009B1E70 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = FAF0B78C2A6D1E8F009B1E70 /* JGProgressHUD */; };
-		FAF0B7912A6D2F71009B1E70 /* PlayerDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0B7902A6D2F71009B1E70 /* PlayerDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +53,6 @@
 		FAF0B7822A6BE14D009B1E70 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		FAF0B7872A6BEC33009B1E70 /* PlayersListVC + UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersListVC + UITableView.swift"; sourceTree = "<group>"; };
 		FAF0B7892A6BEC60009B1E70 /* PlayersListVC + UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersListVC + UICollectionView.swift"; sourceTree = "<group>"; };
-		FAF0B7902A6D2F71009B1E70 /* PlayerDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +93,6 @@
 				FAF0B7662A6AD9D8009B1E70 /* Extensions */,
 				FAF0B7632A6AD793009B1E70 /* Utils */,
 				FAF0B7612A6AD416009B1E70 /* PlayersList */,
-				FAF0B78E2A6D2B77009B1E70 /* PlayerDetails */,
 				FAF0B7562A6AD268009B1E70 /* Assets.xcassets */,
 				FAF0B7582A6AD268009B1E70 /* LaunchScreen.storyboard */,
 				FAF0B75B2A6AD268009B1E70 /* Info.plist */,
@@ -169,22 +166,6 @@
 				FAF0B7822A6BE14D009B1E70 /* Player.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		FAF0B78E2A6D2B77009B1E70 /* PlayerDetails */ = {
-			isa = PBXGroup;
-			children = (
-				FAF0B78F2A6D2BE4009B1E70 /* View */,
-			);
-			path = PlayerDetails;
-			sourceTree = "<group>";
-		};
-		FAF0B78F2A6D2BE4009B1E70 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				FAF0B7902A6D2F71009B1E70 /* PlayerDetailsVC.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,7 +252,6 @@
 				FAF0B7792A6BDB9C009B1E70 /* Observable.swift in Sources */,
 				FAF0B7702A6BCC83009B1E70 /* UIView + Extensions.swift in Sources */,
 				FAF0B7522A6AD267009B1E70 /* PlayersListVC.swift in Sources */,
-				FAF0B7912A6D2F71009B1E70 /* PlayerDetailsVC.swift in Sources */,
 				FAF0B7652A6AD7A2009B1E70 /* AppColors.swift in Sources */,
 				FAF0B77B2A6BDE1A009B1E70 /* HTTPMethod.swift in Sources */,
 				FAF0B7772A6BDB81009B1E70 /* PlayersListViewModel.swift in Sources */,

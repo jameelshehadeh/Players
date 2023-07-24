@@ -14,6 +14,7 @@ extension UIViewController {
     func setNavBarAppearance(bgColor: UIColor = AppColors.primary ?? UIColor.red , titleAtts: TitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]) {
         
         let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithTransparentBackground()
         self.navigationController?.navigationBar.tintColor = .white
         navBarAppearance.backgroundColor = bgColor
         navBarAppearance.titleTextAttributes = titleAtts

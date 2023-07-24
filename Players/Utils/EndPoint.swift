@@ -17,7 +17,11 @@ enum Endpoint : String {
         return self.baseUrl + self.rawValue
     }
     
+    // GET Requests
     case getPlayersList = "api/sc/players"
+    
+    // POST Requests
+    case playerDetails = "api/sc/player/details"
     
 }
 
